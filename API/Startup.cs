@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using API.Extensions;
 using API.Middleware;
 using Application.Activities;
 using Application.Core;
@@ -39,6 +40,7 @@ namespace API
 
             });
             services.AddApplicationServices(_config);
+            services.AddIdentityServices(_config);
 
         }
 
@@ -60,6 +62,8 @@ namespace API
             app.UseRouting();
 
             app.UseCors ("CorsPolicy");
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
