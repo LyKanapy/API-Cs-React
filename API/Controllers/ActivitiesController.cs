@@ -12,7 +12,7 @@ namespace API.Controllers
 {
     public class ActivitiesController : BaseApiController
     {
-
+        [AllowAnonymous]
 
 
         [HttpGet]

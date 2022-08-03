@@ -8,16 +8,16 @@ import ActivityList from "./ActivityList";
 
 export default observer(function ActivityDashboard() {
   const { activityStore } = useStore();
-  const{loadActivities, activityRegistry} = activityStore;
+  const { loadActivities, activityRegistry } = activityStore;
 
   useEffect(() => {
-    if(activityRegistry.size <= 1) {
+    if (activityRegistry.size <= 1) {
       loadActivities();
     }
   }, [activityRegistry.size, loadActivities]);
 
   if (activityStore.loadingInitial)
-    return <LoadingComponent content="Loading App" />;
+    return <LoadingComponent content="Loading activities" />;
 
   return (
     <Grid>
@@ -25,7 +25,7 @@ export default observer(function ActivityDashboard() {
         <ActivityList />
       </GridColumn>
       <GridColumn width="6">
-        <ActivityFilters/>
+        <ActivityFilters />
       </GridColumn>
     </Grid>
   );
